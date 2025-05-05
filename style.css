@@ -53,6 +53,51 @@ body {
     text-align: left;
 }
 
+.quiz {
+    margin-bottom: 20pt;
+    text-align: center;
+}
+
+#quiz-bouton {
+    background-color: #373740;
+    color: #E1D8D0;
+    border: none;
+    padding: 10pt 20pt;
+    font-size: 12pt;
+    cursor: pointer;
+    border-radius: 5pt;
+}
+
+#quiz-bouton:hover {
+    background-color: #575757;
+}
+
+.quiz-question {
+    margin-top: 15pt;
+    text-align: left;
+}
+
+.quiz-question p {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.quiz-question select {
+    width: 100%;
+    padding: 8pt;
+    font-size: 10pt;
+    border: 1pt solid #ccc;
+    border-radius: 5pt;
+    margin-top: 10pt;
+}
+
+.error-message {
+    font-size: 10pt;
+    margin-top: 5pt;
+    color: red;
+    display: none;
+}
+
 .left-txt {
     color: #373741;
     padding-top: 10pt;
