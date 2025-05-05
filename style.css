@@ -82,13 +82,20 @@ body {
     font-weight: bold;
 }
 
-.quiz-question select {
-    width: 100%;
-    padding: 8pt;
-    font-size: 10pt;
+.quiz-option {
+    background-color: #E1D8D0;
+    color: #373741;
     border: 1pt solid #ccc;
+    padding: 10pt 20pt;
+    font-size: 12pt;
+    cursor: pointer;
     border-radius: 5pt;
-    margin-top: 10pt;
+    margin: 5pt;
+    display: inline-block;
+}
+
+.quiz-option:hover {
+    background-color: #d0c8c0;
 }
 
 .error-message {

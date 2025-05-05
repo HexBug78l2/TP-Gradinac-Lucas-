@@ -20,42 +20,30 @@
                     <div id="quiz-container" style="display: none;">
                         <div class="quiz-question" id="question-1">
                             <p>Question 1 : Quelle est la capitale de la France ?</p>
-                            <select id="reponse-1">
-                                <option value="" disabled selected>Choisissez une réponse</option>
-                                <option value="false">Lyon</option>
-                                <option value="false">Marseille</option>
-                                <option value="true">Paris</option>
-                            </select>
+                            <button class="quiz-option" data-correct="false">Lyon</button>
+                            <button class="quiz-option" data-correct="false">Marseille</button>
+                            <button class="quiz-option" data-correct="true">Paris</button>
                             <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
                         </div>
                         <div class="quiz-question" id="question-2" style="display: none;">
                             <p>Question 2 : Combien font 2 + 2 ?</p>
-                            <select id="reponse-2">
-                                <option value="" disabled selected>Choisissez une réponse</option>
-                                <option value="false">3</option>
-                                <option value="true">4</option>
-                                <option value="false">5</option>
-                            </select>
+                            <button class="quiz-option" data-correct="false">3</button>
+                            <button class="quiz-option" data-correct="true">4</button>
+                            <button class="quiz-option" data-correct="false">5</button>
                             <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
                         </div>
                         <div class="quiz-question" id="question-3" style="display: none;">
                             <p>Question 3 : Quel langage est utilisé pour le développement web ?</p>
-                            <select id="reponse-3">
-                                <option value="" disabled selected>Choisissez une réponse</option>
-                                <option value="false">Python</option>
-                                <option value="true">HTML</option>
-                                <option value="false">C++</option>
-                            </select>
+                            <button class="quiz-option" data-correct="false">Python</button>
+                            <button class="quiz-option" data-correct="true">HTML</button>
+                            <button class="quiz-option" data-correct="false">C++</button>
                             <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
                         </div>
                         <div class="quiz-question" id="question-4" style="display: none;">
                             <p>Question 4 : Quelle est la couleur du ciel par temps clair ?</p>
-                            <select id="reponse-4">
-                                <option value="" disabled selected>Choisissez une réponse</option>
-                                <option value="true">Bleu</option>
-                                <option value="false">Vert</option>
-                                <option value="false">Rouge</option>
-                            </select>
+                            <button class="quiz-option" data-correct="true">Bleu</button>
+                            <button class="quiz-option" data-correct="false">Vert</button>
+                            <button class="quiz-option" data-correct="false">Rouge</button>
                             <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
                         </div>
                         <div id="quiz-success" style="display: none;">
@@ -186,7 +174,6 @@
             const quizBtn = document.getElementById('quiz-bouton');
             const quizContainer = document.getElementById('quiz-container');
             const questions = document.querySelectorAll('.quiz-question');
-            const successMessage = document.getElementById('quiz-success');
 
             quizBtn.addEventListener('click', () => {
                 quizContainer.style.display = 'block';
@@ -194,21 +181,24 @@
             });
 
             questions.forEach((question, index) => {
-                const select = question.querySelector('select');
+                const options = question.querySelectorAll('.quiz-option');
                 const errorMessage = question.querySelector('.error-message');
-                select.addEventListener('change', (e) => {
-                    const isCorrect = e.target.value === 'true';
-                    if (isCorrect) {
-                        errorMessage.style.display = 'none';
-                        question.style.display = 'none';
-                        if (index + 1 < questions.length) {
-                            questions[index + 1].style.display = 'block';
+
+                options.forEach(option => {
+                    option.addEventListener('click', () => {
+                        const isCorrect = option.getAttribute('data-correct') === 'true';
+                        if (isCorrect) {
+                            errorMessage.style.display = 'none';
+                            question.style.display = 'none';
+                            if (index + 1 < questions.length) {
+                                questions[index + 1].style.display = 'block';
+                            } else {
+                                window.location.href = 'formulaire_contact.html';
+                            }
                         } else {
-                            successMessage.style.display = 'block';
+                            errorMessage.style.display = 'block';
                         }
-                    } else {
-                        errorMessage.style.display = 'block';
-                    }
+                    });
                 });
             });
         </script>
