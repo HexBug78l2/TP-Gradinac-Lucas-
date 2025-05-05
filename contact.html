@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulaire de Contact</title>
+        <link rel="stylesheet" href="contact.css">
+    </head>
+    <body>
+        <div class="cv-container">
+            <!-- Colonne gauche -->
+            <div class="left-column">
+                <div class="photo-container">
+                    <img src="pdp.png" alt="Photo de Lucas Gradinac">
+                </div>
+                <div class="textbox">
+                    <p class="cadre">COORDONNÉES</p>
+                </div>
+                <div class="left-txt">
+                    <p>49 rue Johannes Gutenberg</p>
+                    <p>78280 Guyancourt</p></br>
+                    <p>📞 06 58 68 53 27</p></br>
+                    <p>✉ lucas.gradinac@epita.fr</p></br>
+                    <p>🔗 <a href="https://linkedin.com/in/lgradinac" style="color: white;">LinkedIn : linkedin.com/in/lgradinac</a></p></br>
+                </div>
+            </div>
+
+            <!-- Colonne droite -->
+            <div class="right-column">
+                <div class="title">
+                    <h1>Formulaire de Contact</h1>
+                </div>
+                <div class="contact-section">
+                    <form id="contact-form">
+                        <label for="name">Nom :</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="prenom">Prénom :</label>
+                        <input type="text" id="name" name="name" required>
+                        
+                        <label for="email">Email :</label>
+                        <input type="email" id="email" name="email" required>
+                        
+                        <label for="subject">Sujet :</label>
+                        <input type="text" id="subject" name="subject" required>
+                        
+                        <label for="message">Message :</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                        
+                        <button type="submit">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

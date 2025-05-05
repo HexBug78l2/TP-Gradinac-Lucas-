@@ -1,0 +1,237 @@
+/* Import des polices */
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@700&family=Lato:wght@400;700&display=swap');
+
+/* Reset général */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 20pt;
+}
+
+.cadre { 
+    background:#373740;
+    color: #E1D8D0; 
+    font-family:Georgia, serif; 
+    font-style: normal; 
+    font-weight: bold; 
+    text-decoration: none; 
+    font-size: 10pt; 
+    padding-top: 7pt;
+    padding-bottom: 7pt;
+    padding-left: 9pt;
+    padding-right: 9pt;
+    text-indent: 0pt;
+    text-align: left;
+    align-items: center;
+}
+
+.cv-container {
+    display: flex;
+    max-width: 900pt;
+    width: 100%;
+    background: white;
+    box-shadow: 2pt 2pt 10pt rgba(0, 0, 0, 0.1);
+    border: 1pt solid #ccc;
+}
+
+/* ========================= */
+/* COLONNE GAUCHE */
+/* ========================= */
+
+.left-column {
+    width: 35%;
+    background-color: #E1D8D0;
+    color: #373741;
+    padding: 25pt;
+    text-align: left;
+}
+
+.left-txt {
+    color: #373741;
+    padding-top: 10pt;
+    padding-bottom: 13pt;
+    padding-left: 9pt;
+    text-indent: 0pt;
+}
+
+.photo-container {
+    text-align: center;
+    margin-bottom: 20pt;
+}
+
+.photo-container img {
+    width: 230pt;
+    height: 230pt;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.left-column h3 {
+    font-size: 18pt;
+    font-family: 'Aleo', serif;
+    margin-top: 20pt;
+    border-bottom: 2pt solid #fff;
+    padding-bottom: 5pt;
+}
+
+.left-column ul {
+    font-size: 11pt;
+    list-style: disc;
+    padding-left: 20pt;
+}
+
+/* ========================= */
+/* COLONNE DROITE */
+/* ========================= */
+.right-column {
+    width: 65%;
+    padding: 30pt;
+}
+
+.right-column h1 {
+    font-size: 50pt;
+    font-family: 'Aleo', serif;
+    color: #E1D8D0;
+    margin-bottom: 1pt;
+}
+
+.title {
+    background-color: #3b3b45;
+    text-align: center;
+    margin-bottom: 20pt;
+    font-family: 'Aleo', serif;
+}
+
+.title h1 {
+    color: #E1D8D0;
+    font-size: 38pt;
+    font-weight: bold;
+}
+
+.right-column h2 {
+    font-size: 22pt;
+    font-family: 'Aleo', serif;
+    color: #373741;
+    margin-bottom: 8pt;
+}
+
+.right-column h3 {
+    font-size: 18pt;
+    margin-top: 20pt;
+    border-bottom: 2pt solid black;
+    padding-bottom: 5pt;
+}
+
+.right-column h4 {
+    font-size: 16pt;
+    color: #373741;
+    margin-top: 10pt;
+    font-weight: normal;
+}
+
+.right-column p, .right-column li {
+    font-size: 14pt;
+    line-height: 1.5;
+}
+
+.right-column ul {
+    list-style: disc;
+    padding-left: 20pt;
+}
+
+
+/* ========================= */
+/* FORMULAIRE DE CONTACT */
+/* ========================= */
+.contact-section {
+    margin-bottom: 20pt;
+    text-align: center;
+}
+
+#contact-form {
+    margin-top: 10pt;
+    display: flex;
+    flex-direction: column;
+    gap: 9pt;
+    background-color: #ffffff;
+    padding: 25pt;
+    border: 1pt solid #ccc;
+    border-radius: 12pt;
+    box-shadow: 0 6pt 12pt rgba(0, 0, 0, 0.15);
+    max-width: 500pt;
+    margin: 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact-form:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8pt 16pt rgba(0, 0, 0, 0.2);
+}
+
+#contact-form label {
+    font-size: 13pt;
+    color: #373741;
+    text-align: left;
+    font-weight: bold;
+}
+
+#contact-form input, #contact-form textarea {
+    padding: 12pt;
+    font-size: 12pt;
+    border: 1pt solid #ccc;
+    border-radius: 8pt;
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+#contact-form input:focus, #contact-form textarea:focus {
+    border-color: #373740;
+    box-shadow: 0 0 6pt rgba(55, 55, 64, 0.5);
+    outline: none;
+    background-color: #ffffff;
+}
+
+#contact-form button {
+    background-color: #373740;
+    color: #E1D8D0;
+    border: none;
+    padding: 14pt;
+    font-size: 15pt;
+    cursor: pointer;
+    border-radius: 10pt;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4pt 8pt rgba(0, 0, 0, 0.1);
+}
+
+#contact-form button:hover {
+    background-color: #575757;
+    transform: scale(1.05);
+    box-shadow: 0 6pt 12pt rgba(0, 0, 0, 0.15);
+}
+
+#contact-form button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2pt 4pt rgba(0, 0, 0, 0.1);
+}
+
+#contact-form textarea {
+    resize: none;
+}
+
+#contact-form input::placeholder, #contact-form textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+#contact-form input, #contact-form textarea {
+    font-family: 'Lato', sans-serif;
+}
