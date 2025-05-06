@@ -1,7 +1,11 @@
-/* Import des polices */
+/* ========================= */
+/* IMPORT POLICES */
+/* ========================= */
 @import url('https://fonts.googleapis.com/css2?family=Aleo:wght@700&family=Lato:wght@400;700&display=swap');
 
-/* Reset général */
+/* ========================= */
+/* RESET GLOBAL */
+/* ========================= */
 * {
     margin: 0;
     padding: 0;
@@ -45,7 +49,6 @@ body {
 /* ========================= */
 /* COLONNE GAUCHE */
 /* ========================= */
-
 .left-column {
     width: 35%;
     background-color: #E1D8D0;
@@ -146,7 +149,6 @@ body {
     list-style: disc;
     padding-left: 20pt;
 }
-
 
 /* ========================= */
 /* FORMULAIRE DE CONTACT */
