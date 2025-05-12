@@ -204,6 +204,41 @@ body {
 }
 
 /* ========================= */
+/* BRUTE FORCE */
+/* ========================= */
+.click-effect {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 0, 0, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+#brute-force-btn {
+    background-color: #bb1d1d;
+    color: white;
+    border: none;
+    padding: 6pt 12pt;
+    font-size: 10pt;
+    cursor: pointer;
+    border-radius: 5pt;
+    margin-top: 5pt;
+}
+
+#brute-force-btn:hover {
+    background-color: #800b0b;
+}
+
+/* ========================= */
 /* COLONNE DROITE */
 /* ========================= */
 .right-column {

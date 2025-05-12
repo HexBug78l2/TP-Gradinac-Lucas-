@@ -48,14 +48,14 @@
                             <div class="quiz-question" id="question-3" style="display: none;">
                                 <p>Question 3 : Quel langage est utilisé pour le développement web ?</p>
                                 <button class="quiz-option" data-correct="false">Python</button>
-                                <button class="quiz-option" data-correct="true">HTML</button>
                                 <button class="quiz-option" data-correct="false">C++</button>
+                                <button class="quiz-option" data-correct="true">HTML</button>
                                 <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
                             </div>
                             <div class="quiz-question" id="question-4" style="display: none;">
                                 <p>Question 4 : Quelle est la couleur du ciel par temps clair ?</p>
-                                <button class="quiz-option" data-correct="true">Bleu</button>
                                 <button class="quiz-option" data-correct="false">Vert</button>
+                                <button class="quiz-option" data-correct="true">Bleu</button>
                                 <button class="quiz-option" data-correct="false">Rouge</button>
                                 <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
                             </div>
@@ -63,6 +63,11 @@
                                 <p>Félicitations ! Vous avez terminé le quiz.</p>
                                 <a href="page_suivante.html">Continuer</a>
                             </div>
+                            <div id="quiz-success" style="display: none;">
+                                <p>Félicitations ! Vous avez terminé le quiz.</p>
+                                <a href="page_suivante.html">Continuer</a>
+                            </div>
+                            <button id="brute-force-btn" style="margin-top: 20px;">Brute Force</button>
                         </div>
                     </div>
 
@@ -256,13 +261,12 @@
         </script>
         <script>
             const navLinks = document.querySelectorAll('.navbar a[data-section]');
-            const sections = document.querySelectorAll('.section'); // Sections de la colonne droite
-            const coordonnees = document.getElementById('coordonnees'); // Coordonnées dans la colonne gauche
-            const leftSections = document.querySelectorAll('.left-section'); // Sections de la colonne gauche
-            const excludedSections = ['competences', 'interets']; // Sections à exclure de "Tout afficher"
+            const sections = document.querySelectorAll('.section');
+            const coordonnees = document.getElementById('coordonnees');
+            const leftSections = document.querySelectorAll('.left-section');
+            const excludedSections = ['competences', 'interets'];
 
             function showFullCV() {
-                // Afficher toutes les sections de la colonne droite sauf celles exclues
                 sections.forEach(section => {
                     if (!excludedSections.includes(section.id)) {
                         section.style.display = 'block';
@@ -271,14 +275,11 @@
                     }
                 });
 
-                // Afficher toutes les sections de la colonne gauche
                 leftSections.forEach(section => section.style.display = 'block');
 
-                // Toujours afficher les coordonnées
                 coordonnees.style.display = 'block';
             }
 
-            // Exécuter la fonction pour afficher le CV complet au chargement de la page
             document.addEventListener('DOMContentLoaded', showFullCV);
 
             navLinks.forEach(link => {
@@ -286,11 +287,9 @@
                     event.preventDefault();
                     const targetSection = link.getAttribute('data-section');
 
-                    // Toujours afficher les coordonnées
                     coordonnees.style.display = 'block';
 
                     if (targetSection === 'all') {
-                        // Afficher toutes les sections sauf celles exclues
                         sections.forEach(section => {
                             if (!excludedSections.includes(section.id)) {
                                 section.style.display = 'block';
@@ -299,15 +298,12 @@
                             }
                         });
 
-                        // Réafficher toutes les sections de la colonne gauche
                         leftSections.forEach(section => section.style.display = 'block');
                     } else {
-                        // Masquer toutes les sections de la colonne gauche sauf coordonnées
                         leftSections.forEach(section => {
                             section.style.display = 'none';
                         });
 
-                        // Afficher uniquement la section ciblée dans la colonne droite
                         sections.forEach(section => {
                             if (section.id === targetSection) {
                                 section.style.display = 'block';
@@ -317,6 +313,67 @@
                         });
                     }
                 });
+            });
+        </script>
+        <script>
+            const bruteForceBtn = document.getElementById('brute-force-btn');
+
+            bruteForceBtn.addEventListener('click', () => {
+                bruteForceBtn.style.display = 'none';
+
+                const questions = document.querySelectorAll('.quiz-question');
+                let currentQuestionIndex = 0;
+
+                function createClickEffect(element) {
+                    const rect = element.getBoundingClientRect();
+                    const effect = document.createElement('div');
+                    effect.className = 'click-effect';
+                    effect.style.left = `${rect.left + rect.width / 2}px`;
+                    effect.style.top = `${rect.top + rect.height / 2}px`;
+                    effect.style.position = 'absolute';
+                    document.body.appendChild(effect);
+
+                    setTimeout(() => {
+                        effect.remove();
+                    }, 500);
+                }
+
+                function bruteForceQuestion(questionIndex) {
+                    if (questionIndex >= questions.length) {
+                        window.location.href = 'contact.html';
+                        return;
+                    }
+
+                    const question = questions[questionIndex];
+                    const options = question.querySelectorAll('.quiz-option');
+                    const errorMessage = question.querySelector('.error-message');
+                    let optionIndex = 0;
+
+                    function tryOption() {
+                        if (optionIndex >= options.length) {
+                            console.error('Aucune réponse correcte trouvée pour la question ' + (questionIndex + 1));
+                            return;
+                        }
+
+                        const option = options[optionIndex];
+                        createClickEffect(option);
+                        option.click();
+
+                        setTimeout(() => {
+                            if (question.style.display === 'none') {
+                                bruteForceQuestion(questionIndex + 1);
+                            } else {
+                                errorMessage.style.display = 'block';
+
+                                optionIndex++;
+                                tryOption();
+                            }
+                        }, 500);
+                    }
+                    tryOption();
+                }
+
+                bruteForceQuestion(currentQuestionIndex);
             });
         </script>
     </body>
