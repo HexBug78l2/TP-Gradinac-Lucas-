@@ -16,85 +16,86 @@
                 <li><a href="#" data-section="formation">Formations</a></li>
                 <li><a href="#" data-section="competences">Compétences</a></li>
                 <li><a href="#" data-section="interets">Centres d'intérêt</a></li>
-                <li><a href="contact.html">Me Contacter</a></li>
+                <li><a href="contact.html">Me contacter</a></li>
             </ul>
         </nav>
 
         <div class="cv-container">
             <!-- Colonne gauche -->
             <div class="left-column">
-                <div class="photo-container">
-                    <img src="pdp.png" alt="Photo de Lucas Gradinac">
-                </div>
+                <div id="coordonnees">
+                    <div class="photo-container">
+                        <img src="pdp.png" alt="Photo de Lucas Gradinac">
+                    </div>
 
-                <div class="quiz">
-                    <button id="quiz-bouton">Me Contacter</button>
-                    <div id="quiz-container" style="display: none;">
-                        <div class="quiz-question" id="question-1">
-                            <p>Question 1 : Quelle est la capitale de la France ?</p>
-                            <button class="quiz-option" data-correct="false">Lyon</button>
-                            <button class="quiz-option" data-correct="false">Marseille</button>
-                            <button class="quiz-option" data-correct="true">Paris</button>
-                            <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
-                        </div>
-                        <div class="quiz-question" id="question-2" style="display: none;">
-                            <p>Question 2 : Combien font 2 + 2 ?</p>
-                            <button class="quiz-option" data-correct="false">3</button>
-                            <button class="quiz-option" data-correct="true">4</button>
-                            <button class="quiz-option" data-correct="false">5</button>
-                            <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
-                        </div>
-                        <div class="quiz-question" id="question-3" style="display: none;">
-                            <p>Question 3 : Quel langage est utilisé pour le développement web ?</p>
-                            <button class="quiz-option" data-correct="false">Python</button>
-                            <button class="quiz-option" data-correct="true">HTML</button>
-                            <button class="quiz-option" data-correct="false">C++</button>
-                            <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
-                        </div>
-                        <div class="quiz-question" id="question-4" style="display: none;">
-                            <p>Question 4 : Quelle est la couleur du ciel par temps clair ?</p>
-                            <button class="quiz-option" data-correct="true">Bleu</button>
-                            <button class="quiz-option" data-correct="false">Vert</button>
-                            <button class="quiz-option" data-correct="false">Rouge</button>
-                            <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
-                        </div>
-                        <div id="quiz-success" style="display: none;">
-                            <p>Félicitations ! Vous avez terminé le quiz.</p>
-                            <a href="page_suivante.html">Continuer</a>
+                    <div class="quiz">
+                        <button id="quiz-bouton">Me Contacter</button>
+                        <div id="quiz-container" style="display: none;">
+                            <div class="quiz-question" id="question-1">
+                                <p>Question 1 : Quelle est la capitale de la France ?</p>
+                                <button class="quiz-option" data-correct="false">Lyon</button>
+                                <button class="quiz-option" data-correct="false">Marseille</button>
+                                <button class="quiz-option" data-correct="true">Paris</button>
+                                <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
+                            </div>
+                            <div class="quiz-question" id="question-2" style="display: none;">
+                                <p>Question 2 : Combien font 2 + 2 ?</p>
+                                <button class="quiz-option" data-correct="false">3</button>
+                                <button class="quiz-option" data-correct="true">4</button>
+                                <button class="quiz-option" data-correct="false">5</button>
+                                <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
+                            </div>
+                            <div class="quiz-question" id="question-3" style="display: none;">
+                                <p>Question 3 : Quel langage est utilisé pour le développement web ?</p>
+                                <button class="quiz-option" data-correct="false">Python</button>
+                                <button class="quiz-option" data-correct="true">HTML</button>
+                                <button class="quiz-option" data-correct="false">C++</button>
+                                <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
+                            </div>
+                            <div class="quiz-question" id="question-4" style="display: none;">
+                                <p>Question 4 : Quelle est la couleur du ciel par temps clair ?</p>
+                                <button class="quiz-option" data-correct="true">Bleu</button>
+                                <button class="quiz-option" data-correct="false">Vert</button>
+                                <button class="quiz-option" data-correct="false">Rouge</button>
+                                <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
+                            </div>
+                            <div id="quiz-success" style="display: none;">
+                                <p>Félicitations ! Vous avez terminé le quiz.</p>
+                                <a href="page_suivante.html">Continuer</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="textbox">
-                    <p class="cadre">COORDONNÉES</p>
-                </div>
+                    <div class="textbox">
+                        <p class="cadre">COORDONNÉES</p>
+                    </div>
 
-                <div class="left-txt">
-                    <p>49 rue Johannes Gutenberg</p>
-                    <p>78280 Guyancourt</p></br>
-                    <p>📞 06 58 68 53 27</p></br>
-                    <p>Permis B</p></br>
-                    <p>✉ lucas.gradinac@epita.fr</p></br>
-                    <p>🔗 <a href="https://linkedin.com/in/lgradinac" style="color: white;">LinkedIn : linkedin.com/in/lgradinac</a></p></br>
-                    <p>Né le 23/10/2006</p>
+                    <div class="left-txt">
+                        <p>1 rue Jean Moulin</p>
+                        <p>78000 Versailles</p></br>
+                        <p>📞 06 06 06 06 06</p></br>
+                        <p>Permis B</p></br>
+                        <p>✉ lucas.gradinac@epita.fr</p></br>
+                        <p>🔗 <a href="https://linkedin.com/in/lgradinac" style="color: white;">LinkedIn : linkedin.com/in/lgradinac</a></p></br>
+                        <p>Né le 12/12/2012</p>
+                    </div>
                 </div>
-
-                <div class="textbox">
+                <div class="textbox left-section">
                     <p class="cadre">LANGUES</p>
                 </div>
 
-                <div class="left-txt">
+                <div class="left-txt left-section">
                     <ul>
                         <li>Anglais : C1</li>
                         <li>Espagnol : B1</li>
                     </ul>
                 </div>
 
-                <div class="textbox">
+                <div class="textbox left-section">
                     <p class="cadre">COMPÉTENCES</p>
                 </div>
 
-                <div class="left-txt">
+                <div class="left-txt left-section">
                     <ul>
                         <li>Pack Office 365</li>
                         <li>Langages maîtrisés : C, Python</li>
@@ -109,11 +110,11 @@
                     </ul>
                 </div>
 
-                <div class="textbox">
+                <div class="textbox left-section">
                     <p class="cadre">CENTRES D'INTERÊT</p>
                 </div>
 
-                <div class="left-txt">
+                <div class="left-txt left-section">
                     <ul>
                         <li>Informatique</li>
                         <li>Musique</li>
@@ -133,53 +134,92 @@
                     </div>
                 </div>
 
-                <div class="textbox">
-                    <p class="cadre">PROFIL</p>
-                </div>
-                <div class="dectxt">
-                    <p>En quête d'opportunités, mon désir d'apprendre et de relever de nouveaux objectifs font de moi une personne motivée à découvrir l'univers de l’informatique et plus particulièrement de la cybersécurité.</p>
-                </div>
-
-                <div class="textbox">
-                    <p class="cadre">EXPÉRIENCE PROFESSIONNELLE</p>
+                <div class="section" id="profil">
+                    <div class="textbox">
+                        <p class="cadre">PROFIL</p>
+                    </div>
+                    <div class="dectxt">
+                        <p>En quête d'opportunités, mon désir d'apprendre et de relever de nouveaux objectifs font de moi une personne motivée à découvrir l'univers de l’informatique et plus particulièrement de la cybersécurité.</p>
+                    </div>
                 </div>
 
-                <div class="dectxt">
-                    <h4><strong>Employé multitâche chez Mickey Boy |</strong> 2023 - 2024</h4>
-                    <p>Saint-Jean de Monts (85160)</p>
-                    <ul>
-                        <li>Mise en route et vérification de la sécurité des attractions</li>
-                        <li>Réparations de systèmes</li>
-                        <li>Pratique de la mécanique et de l’électronique</li>
-                        <li>Gestion des équipes et de la répartition des tâches</li>
-                    </ul>
+                <div class="section" id="experience">
+                    <div class="textbox">
+                        <p class="cadre">EXPÉRIENCE PROFESSIONNELLE</p>
+                    </div>
+                    <div class="dectxt">
+                        <h4><strong>Employé multitâche chez Mickey Boy |</strong> 2023 - 2024</h4>
+                        <p>Saint-Jean de Monts (85160)</p>
+                        <ul>
+                            <li>Mise en route et vérification de la sécurité des attractions</li>
+                            <li>Réparations de systèmes</li>
+                            <li>Pratique de la mécanique et de l’électronique</li>
+                            <li>Gestion des équipes et de la répartition des tâches</li>
+                        </ul>
 
-                    <h4><strong>Stage en entreprise chez Thales |</strong> Juillet 2021</h4>
-                    <p>Vélizy (78140)</p>
-                    <ul>
-                        <li>Expérience en support et services : création d'outils pour les équipes internationales et recueil des besoins clients en réunion</li>
-                        <li>Immersion en développement et cybersécurité : coordination des avancées entre équipes</li>
-                        <li>Découverte de la cybersécurité et de ses enjeux avec un architecte réseaux</li>
-                    </ul>
+                        <h4><strong>Stage en entreprise chez Thales |</strong> Juillet 2021</h4>
+                        <p>Vélizy (78140)</p>
+                        <ul>
+                            <li>Expérience en support et services : création d'outils pour les équipes internationales et recueil des besoins clients en réunion</li>
+                            <li>Immersion en développement et cybersécurité : coordination des avancées entre équipes</li>
+                            <li>Découverte de la cybersécurité et de ses enjeux avec un architecte réseaux</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="textbox">
-                    <p class="cadre">FORMATIONS</p>
+                <div class="section" id="formation">
+                    <div class="textbox">
+                        <p class="cadre">FORMATIONS</p>
+                    </div>
+                    <div class="dectxt">
+                        <h4><strong>Bachelor en Cybersécurité |</strong> Sep 2024 - Juin 2027</h4>
+                        <p>EPITA : La Défense - Kremlin-Bicêtre (94043)</p>
+                        <ul>
+                            <li>Formation en association avec Polytechnique l'X et le Ministère des Armées</li>
+                            <li>Apprentissage de langages de programmation : Python, C, Java, Assembleur et C++ (en 2ᵉ année)</li>
+                            <li>Enseignement en réseaux, algorithmie, structures de données, architecture des ordinateurs et système Linux</li>
+                            <li>Cours complémentaires : anglais général et technique, méthodologie de travail, communication écrite et orale</li>
+                        </ul>
+    
+                        <h4><strong>Baccalauréat spécialités Mathématiques/Sciences de l’Ingénierie avec mention |</strong> Juin 2024</h4>
+                        <p>Lycée Saint-François d’Assise à Montigny-Le-Bretonneux (78180)</p>
+                    </div>
                 </div>
 
-                <div class="dectxt">
-                    <h4><strong>Bachelor en Cybersécurité |</strong> Sep 2024 - Juin 2027</h4>
-                    <p>EPITA : La Défense - Kremlin-Bicêtre (94043)</p>
-                    <ul>
-                        <li>Formation en association avec Polytechnique l'X et le Ministère des Armées</li>
-                        <li>Apprentissage de langages de programmation : Python, C, Java, Assembleur et C++ (en 2ᵉ année)</li>
-                        <li>Enseignement en réseaux, algorithmie, structures de données, architecture des ordinateurs et système Linux</li>
-                        <li>Cours complémentaires : anglais général et technique, méthodologie de travail, communication écrite et orale</li>
-                    </ul>
-
-                    <h4><strong>Baccalauréat spécialités Mathématiques/Sciences de l’Ingénierie avec mention |</strong> Juin 2024</h4>
-                    <p>Lycée Saint-François d’Assise à Montigny-Le-Bretonneux (78180)</p>
+                <div class="section" id="competences" style="display: none;">
+                    <div class="textbox">
+                        <p class="cadre">COMPÉTENCES</p>
+                    </div>
+                    <div class="dectxt">
+                        <ul>
+                            <li>Pack Office 365</li>
+                            <li>Langages maîtrisés : C, Python</li>
+                            <li>Connaissances en : HTML, CSS, et JavaScript</li>
+                            <li>Sens du relationnel</li>
+                            <li>Ouverture d'esprit</li>
+                            <li>Sérieux</li>
+                            <li>Rigoureux</li>
+                            <li>Curieux</li>
+                            <li>Autonome</li>
+                            <li>Organisé</li>
+                        </ul>
+                    </div>
                 </div>
+
+                <div class="section" id="interets" style="display: none;">
+                    <div class="textbox">
+                        <p class="cadre">CENTRES D'INTÉRÊT</p>
+                    </div>
+                    <div class="dectxt">
+                        <ul>
+                            <li>Informatique</li>
+                            <li>Musique</li>
+                            <li>Sport</li>
+                            <li>Voyages</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
         <script>
@@ -211,6 +251,71 @@
                             errorMessage.style.display = 'block';
                         }
                     });
+                });
+            });
+        </script>
+        <script>
+            const navLinks = document.querySelectorAll('.navbar a[data-section]');
+            const sections = document.querySelectorAll('.section'); // Sections de la colonne droite
+            const coordonnees = document.getElementById('coordonnees'); // Coordonnées dans la colonne gauche
+            const leftSections = document.querySelectorAll('.left-section'); // Sections de la colonne gauche
+            const excludedSections = ['competences', 'interets']; // Sections à exclure de "Tout afficher"
+
+            function showFullCV() {
+                // Afficher toutes les sections de la colonne droite sauf celles exclues
+                sections.forEach(section => {
+                    if (!excludedSections.includes(section.id)) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+
+                // Afficher toutes les sections de la colonne gauche
+                leftSections.forEach(section => section.style.display = 'block');
+
+                // Toujours afficher les coordonnées
+                coordonnees.style.display = 'block';
+            }
+
+            // Exécuter la fonction pour afficher le CV complet au chargement de la page
+            document.addEventListener('DOMContentLoaded', showFullCV);
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const targetSection = link.getAttribute('data-section');
+
+                    // Toujours afficher les coordonnées
+                    coordonnees.style.display = 'block';
+
+                    if (targetSection === 'all') {
+                        // Afficher toutes les sections sauf celles exclues
+                        sections.forEach(section => {
+                            if (!excludedSections.includes(section.id)) {
+                                section.style.display = 'block';
+                            } else {
+                                section.style.display = 'none';
+                            }
+                        });
+
+                        // Réafficher toutes les sections de la colonne gauche
+                        leftSections.forEach(section => section.style.display = 'block');
+                    } else {
+                        // Masquer toutes les sections de la colonne gauche sauf coordonnées
+                        leftSections.forEach(section => {
+                            section.style.display = 'none';
+                        });
+
+                        // Afficher uniquement la section ciblée dans la colonne droite
+                        sections.forEach(section => {
+                            if (section.id === targetSection) {
+                                section.style.display = 'block';
+                            } else {
+                                section.style.display = 'none';
+                            }
+                        });
+                    }
                 });
             });
         </script>
