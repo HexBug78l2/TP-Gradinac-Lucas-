@@ -1,54 +1,77 @@
 const display = document.getElementById('calculator-display');
 const historyList = document.getElementById('history-list');
-const currentCalculation = document.getElementById('current-calculation'); // Zone pour le calcul en cours
-let currentInput = '';
-let operator = '';
-let previousInput = '';
-let fullExpression = ''; // Stocke le calcul complet
+const currentCalculation = document.getElementById('current-calculation');
+let fullExpression = '';
 
 document.querySelectorAll('.btn').forEach(button => {
     button.addEventListener('click', () => {
         const value = button.getAttribute('data-value');
 
         if (value === 'C') {
-            currentInput = '';
-            operator = '';
-            previousInput = '';
-            fullExpression = ''; // Réinitialiser le calcul complet
+            fullExpression = '';
             display.value = '';
-            currentCalculation.textContent = ''; // Effacer le calcul en cours
-        } else if (value === '=') {
-            if (currentInput && previousInput && operator) {
-                let result;
-                if (operator === '%') {
-                    result = (parseFloat(previousInput) * parseFloat(currentInput)) / 100;
-                } else {
-                    result = eval(`${previousInput} ${operator} ${currentInput}`);
-                }
-                fullExpression = `${previousInput} ${operator} ${currentInput}`;
-                addToHistory(`${fullExpression} = ${result}`); // Ajouter le calcul à l'historique
-                display.value = result;
-                currentCalculation.textContent = `${fullExpression} =`; // Afficher le calcul complet
-                operator = '';
-                previousInput = '';
-                currentInput = '';
+            currentCalculation.textContent = '';
+        } else if (value === '←') {
+            // Supprimer le dernier caractère
+            if (fullExpression.endsWith('²')) {
+                fullExpression = fullExpression.slice(0, -1); // Supprimer le carré
+            } else {
+                fullExpression = fullExpression.slice(0, -1);
             }
-        } else if (['+', '-', '*', '/', '%'].includes(value)) {
-            if (currentInput) {
-                operator = value;
-                previousInput = currentInput;
-                currentCalculation.textContent = `${previousInput} ${operator}`; // Mettre à jour le calcul en cours
-                currentInput = '';
+            display.value = fullExpression || '0';
+            currentCalculation.textContent = fullExpression;
+        } else if (value === '=') {
+            try {
+                const result = evaluateExpression(fullExpression);
+                addToHistory(`${fullExpression} = ${result}`);
+                display.value = result;
+                currentCalculation.textContent = `${fullExpression} =`;
+                fullExpression = '';
+            } catch (error) {
+                display.value = 'Erreur';
+            }
+        } else if (value === '²') {
+            // Ajouter le carré dans l'affichage
+            const match = fullExpression.match(/(\d+(\.\d+)?|\.\d+)$/); // Trouver le dernier nombre
+            if (match) {
+                const number = match[0];
+                fullExpression = fullExpression.replace(/(\d+(\.\d+)?|\.\d+)$/, `${number}²`);
+                display.value = fullExpression;
+                currentCalculation.textContent = fullExpression;
             }
         } else {
-            currentInput += value === ',' ? '.' : value;
-            display.value = currentInput;
-            currentCalculation.textContent = `${previousInput} ${operator || ''} ${currentInput}`.trim(); // Mettre à jour le calcul en cours
+            if (isOperator(value)) {
+                if (isOperator(fullExpression.slice(-1))) {
+                    fullExpression = fullExpression.slice(0, -1);
+                }
+            }
+            if (value === '%') {
+                // Si le dernier caractère est un opérateur, traiter % comme modulo
+                if (isOperator(fullExpression.slice(-1))) {
+                    fullExpression += value;
+                } else {
+                    // Sinon, traiter % comme un pourcentage
+                    fullExpression += '/100';
+                }
+            } else {
+                fullExpression += value === ',' ? '.' : value;
+            }
+            display.value = fullExpression;
+            currentCalculation.textContent = fullExpression;
         }
     });
 });
 
-// Fonction pour ajouter un calcul à l'historique
+function isOperator(char) {
+    return ['+', '-', '*', '/', '%'].includes(char);
+}
+
+function evaluateExpression(expression) {
+    // Remplacer les carrés (ex: 5²) par Math.pow(5, 2)
+    const parsedExpression = expression.replace(/(\d+)²/g, 'Math.pow($1, 2)');
+    return new Function(`return ${parsedExpression}`)();
+}
+
 function addToHistory(expression) {
     const li = document.createElement('li');
     li.textContent = expression;
