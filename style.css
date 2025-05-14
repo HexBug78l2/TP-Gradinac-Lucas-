@@ -313,13 +313,28 @@ body {
 /* ========================= */
 /* RESPONSIVE DESIGN */
 /* ========================= */
-@media screen and (max-width: 768pt) {
+@media (max-width: 1024px) {
     .cv-container {
         flex-direction: column;
+        align-items: center;
     }
 
     .left-column, .right-column {
-        width: 100%;
-        text-align: center;
+        width: 90%;
+        padding: 20px;
+    }
+
+    .photo-container img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar a {
+        font-size: 12pt;
     }
 }

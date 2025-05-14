@@ -6,7 +6,6 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20pt;
-    height: 100vh;
 }
 
 /* ========================= */
@@ -98,13 +97,15 @@ body {
 .calculator-buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 280px;
 }
 
 .btn {
-    padding: 15px;
-    font-size: 16px;
+    padding: 20px;
+    font-size: 18px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
