@@ -2,10 +2,52 @@ body {
     font-family: 'Lato', sans-serif;
     background-color: #f4f4f4;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20pt;
     height: 100vh;
+}
+
+/* ========================= */
+/* NAV BARRE */
+/* ========================= */
+
+.navbar {
+    background-color: #373740;
+    padding: 10pt;
+    text-align: center;
+    box-shadow: 0 4pt 8pt rgba(0, 0, 0, 0.1);
+    margin-bottom: 20pt;
+    border-radius: 5pt;
+}
+
+.navbar ul {
+    list-style: none;
     margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20pt;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    color: #E1D8D0;
+    text-decoration: none;
+    font-size: 14pt;
+    font-weight: bold;
+    padding: 5pt 10pt;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+    color: #ffffff;
+    border-radius: 5pt;
 }
 
 .calculator-container {

@@ -60,7 +60,7 @@ body {
 }
 
 /* ========================= */
-/* NAV BAR */
+/* NAV BARRE */
 /* ========================= */
 
 .navbar {
@@ -69,6 +69,7 @@ body {
     text-align: center;
     box-shadow: 0 4pt 8pt rgba(0, 0, 0, 0.1);
     margin-bottom: 20pt;
+    border-radius: 5pt;
 }
 
 .navbar ul {
