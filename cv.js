@@ -1,6 +1,7 @@
 const quizBtn = document.getElementById('quiz-bouton');
 const quizContainer = document.getElementById('quiz-container');
 const questions = document.querySelectorAll('.quiz-question');
+const quizSuccess = document.getElementById('quiz-success');
 
 quizBtn.addEventListener('click', () => {
     quizContainer.style.display = 'block';
@@ -20,7 +21,7 @@ questions.forEach((question, index) => {
                 if (index + 1 < questions.length) {
                     questions[index + 1].style.display = 'block';
                 } else {
-                    window.location.href = 'contact.html';
+                    quizSuccess.style.display = 'block'; // Affiche le message de succès
                 }
             } else {
                 errorMessage.style.display = 'block';
