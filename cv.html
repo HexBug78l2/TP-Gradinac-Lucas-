@@ -1,228 +1,213 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CV Gradinac Lucas</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Gradinac Lucas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Aleo:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="./output.css" rel="stylesheet">
+  </head>
+  <body class="font-['Lato',sans-serif] bg-[#f4f4f4] flex flex-col items-center p-[20pt]">
 
-        <nav class="navbar">
-            <ul>
-                <li><a href="#" data-section="all">Tout afficher</a></li>
-                <li><a href="#" data-section="profil">Profil</a></li>
-                <li><a href="#" data-section="experience">Expériences professionnelles</a></li>
-                <li><a href="#" data-section="formation">Formations</a></li>
-                <li><a href="#" data-section="competences">Compétences</a></li>
-                <li><a href="#" data-section="interets">Centres d'intérêt</a></li>
-                <li><a href="calculatrice.html">Calculatrice</a></li>
-            </ul>
-        </nav>
+    <!-- NAVBAR -->
+    <nav class="bg-[#373740] p-[5pt] text-center shadow-[0_4pt_8pt_rgba(0,0,0,0.1)] mb-[20pt] rounded-[5pt] w-full max-w-[900pt]">
+      <ul class="inline-flex justify-center gap-[20pt] list-none m-0 p-0 flex-wrap">
+        <li><a href="#" data-section="all" class="text-[#E1D8D0] no-underline text-[18px] font-bold px-[9pt] py-[5pt] transition-colors duration-300 rounded-[5pt] hover:bg-[#575757] hover:text-white break-words text-center block">Tout afficher</a></li>
+        <li><a href="#" data-section="profil" class="text-[#E1D8D0] no-underline text-[18px] font-bold px-[9pt] py-[5pt] transition-colors duration-300 rounded-[5pt] hover:bg-[#575757] hover:text-white break-words text-center block">Profil</a></li>
+        <li><a href="#" data-section="experience" class="text-[#E1D8D0] no-underline text-[18px] font-bold px-[9pt] py-[5pt] transition-colors duration-300 rounded-[5pt] hover:bg-[#575757] hover:text-white break-words text-center block">Expériences professionnelles</a></li>
+        <li><a href="#" data-section="formation" class="text-[#E1D8D0] no-underline text-[18px] font-bold px-[9pt] py-[5pt] transition-colors duration-300 rounded-[5pt] hover:bg-[#575757] hover:text-white break-words text-center block">Formations</a></li>
+        <li><a href="#" data-section="competences" class="text-[#E1D8D0] no-underline text-[18px] font-bold px-[9pt] py-[5pt] transition-colors duration-300 rounded-[5pt] hover:bg-[#575757] hover:text-white break-words text-center block">Compétences</a></li>
+        <li><a href="#" data-section="interets" class="text-[#E1D8D0] no-underline text-[18px] font-bold px-[9pt] py-[5pt] transition-colors duration-300 rounded-[5pt] hover:bg-[#575757] hover:text-white break-words text-center block">Centres d'intérêt</a></li>
+        <li><a href="calculatrice.html" class="text-[#E1D8D0] no-underline text-[18px] font-bold px-[9pt] py-[5pt] transition-colors duration-300 rounded-[5pt] hover:bg-[#575757] hover:text-white break-words text-center block">Calculatrice</a></li>
+      </ul>
+    </nav>
 
-        <div class="cv-container">
-            <!-- Colonne gauche -->
-            <div class="left-column">
-                <div id="coordonnees">
-                    <div class="photo-container">
-                        <img src="pdp.png" alt="Photo de Lucas Gradinac">
-                    </div>
-
-                    <div class="quiz">
-                        <button id="quiz-bouton">Me Contacter</button>
-                        <div id="quiz-container" style="display: none;">
-                            <div class="quiz-question" id="question-1">
-                                <p>Question 1 : Quelle est la capitale de la France ?</p>
-                                <button class="quiz-option" data-correct="false">Lyon</button>
-                                <button class="quiz-option" data-correct="false">Marseille</button>
-                                <button class="quiz-option" data-correct="true">Paris</button>
-                                <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
-                            </div>
-                            <div class="quiz-question" id="question-2" style="display: none;">
-                                <p>Question 2 : Combien font 2 + 2 ?</p>
-                                <button class="quiz-option" data-correct="false">3</button>
-                                <button class="quiz-option" data-correct="true">4</button>
-                                <button class="quiz-option" data-correct="false">5</button>
-                                <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
-                            </div>
-                            <div class="quiz-question" id="question-3" style="display: none;">
-                                <p>Question 3 : Quel langage est utilisé pour le développement web ?</p>
-                                <button class="quiz-option" data-correct="false">Python</button>
-                                <button class="quiz-option" data-correct="false">C++</button>
-                                <button class="quiz-option" data-correct="true">HTML</button>
-                                <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
-                            </div>
-                            <div class="quiz-question" id="question-4" style="display: none;">
-                                <p>Question 4 : Quelle est la couleur du ciel par temps clair ?</p>
-                                <button class="quiz-option" data-correct="false">Vert</button>
-                                <button class="quiz-option" data-correct="true">Bleu</button>
-                                <button class="quiz-option" data-correct="false">Rouge</button>
-                                <p class="error-message" style="display: none; color: red;">Réponse incorrecte. Essayez encore.</p>
-                            </div>
-                            <div id="quiz-success" style="display: none;">
-                                <p>Félicitations ! Vous avez terminé le quiz.</p>
-                                <a href="contact.html" class="continue-btn">Continuer</a>
-                            </div>
-                            <button id="brute-force-btn" style="margin-top: 20px;">Brute Force</button>
-                        </div>
-                    </div>
-
-                    <div class="textbox">
-                        <p class="cadre">COORDONNÉES</p>
-                    </div>
-
-                    <div class="left-txt">
-                        <p>1 rue Jean Moulin</p>
-                        <p>78000 Versailles</p></br>
-                        <p>📞 06 06 06 06 06</p></br>
-                        <p>Permis B</p></br>
-                        <p>✉ lucas.gradinac@epita.fr</p></br>
-                        <p>🔗 <a href="https://linkedin.com/in/lgradinac" style="color: white;">LinkedIn : linkedin.com/in/lgradinac</a></p></br>
-                        <p>Né le 12/12/2012</p>
-                    </div>
-                </div>
-                <div class="textbox left-section">
-                    <p class="cadre">LANGUES</p>
-                </div>
-
-                <div class="left-txt left-section">
-                    <ul>
-                        <li>Anglais : C1</li>
-                        <li>Espagnol : B1</li>
-                    </ul>
-                </div>
-
-                <div class="textbox left-section">
-                    <p class="cadre">COMPÉTENCES</p>
-                </div>
-
-                <div class="left-txt left-section">
-                    <ul>
-                        <li>Pack Office 365</li>
-                        <li>Langages maîtrisés : C, Python</li>
-                        <li>Connaissances en : HTML, CSS, et JavaScript</li></br>
-                        <li>Sens du relationnel</li>
-                        <li>Ouverture d'esprit</li>
-                        <li>Sérieux</li>
-                        <li>Rigoureux</li>
-                        <li>Curieux</li>
-                        <li>Autonome</li>
-                        <li>Organisé</li>
-                    </ul>
-                </div>
-
-                <div class="textbox left-section">
-                    <p class="cadre">CENTRES D'INTERÊT</p>
-                </div>
-
-                <div class="left-txt left-section">
-                    <ul>
-                        <li>Informatique</li>
-                        <li>Musique</li>
-                        <li>Sport</li>
-                        <li>Voyages</li>
-                    </ul>
-                </div>
+    <div class="flex max-w-[900pt] w-full bg-white shadow-[2pt_2pt_10pt_rgba(0,0,0,0.1)] border border-[#ccc] flex-col md:flex-row items-start">
+      <!-- Colonne gauche -->
+      <div class="w-full md:w-[35%] bg-[#E1D8D0] text-[#373741] p-[25pt] text-left">
+        <div id="coordonnees">
+          <div class="text-center mb-[20pt]">
+            <img src="pdp.png" alt="Photo de Lucas Gradinac" class="w-[230pt] h-[230pt] rounded-full object-cover mx-auto transition-transform duration-300 hover:scale-110">
+          </div>
+          <div class="mb-[20pt] text-center">
+            <button id="quiz-bouton" class="bg-[#ea9932] text-[#E1D8D0] border-none px-[20pt] py-[10pt] text-[12pt] cursor-pointer rounded-[5pt] hover:bg-[#bb7315]">Me Contacter</button>
+            <div id="quiz-container" style="display: none;">
+              <div class="mt-[15pt] text-left quiz-question" id="question-1">
+                <p class="font-bold text-[12pt]">Question 1 : Quelle est la capitale de la France ?</p>
+                <button class="bg-[#E1D8D0] text-[#373741] border border-[#ccc] px-[20pt] py-[10pt] text-[12pt] cursor-pointer rounded-[5pt] m-[5pt] inline-block quiz-option hover:bg-[#d0c8c0]" data-correct="false">Lyon</button>
+                <button class="bg-[#E1D8D0] text-[#373741] border border-[#ccc] px-[20pt] py-[10pt] text-[12pt] cursor-pointer rounded-[5pt] m-[5pt] inline-block quiz-option hover:bg-[#d0c8c0]" data-correct="false">Marseille</button>
+                <button class="bg-[#E1D8D0] text-[#373741] border border-[#ccc] px-[20pt] py-[10pt] text-[12pt] cursor-pointer rounded-[5pt] m-[5pt] inline-block quiz-option hover:bg-[#d0c8c0]" data-correct="true">Paris</button>
+                <p class="text-[11pt] font-bold mt-[4pt] text-red-600 error-message" style="display: none;">Réponse incorrecte. Essayez encore.</p>
+              </div>
+              <div class="mt-[15pt] text-left quiz-question" id="question-2" style="display: none;">
+                <p class="font-bold text-[12pt]">Question 2 : Combien font 2 + 2 ?</p>
+                <button class="bg-[#E1D8D0] text-[#373741] border border-[#ccc] px-[20pt] py-[10pt] text-[12pt] cursor-pointer rounded-[5pt] m-[5pt] inline-block quiz-option hover:bg-[#d0c8c0]" data-correct="false">3</button>
+                <button class="bg-[#E1D8D0] text-[#373741] border border-[#ccc] px-[20pt] py-[10pt] text-[12pt] cursor-pointer rounded-[5pt] m-[5pt] inline-block quiz-option hover:bg-[#d0c8c0]" data-correct="true">4</button>
+                <button class="bg-[#E1D8D0] text-[#373741] border border-[#ccc] px-[20pt] py-[10pt] text-[12pt] cursor-pointer rounded-[5pt] m-[5pt] inline-block quiz-option hover:bg-[#d0c8c0]" data-correct="false">5</button>
+                <p class="text-[11pt] font-bold mt-[4pt] text-red-600 error-message" style="display: none;">Réponse incorrecte. Essayez encore.</p>
+              </div>
+              <div class="mt-[15pt] text-left quiz-question" id="question-3" style="display: none;">
+                <p class="font-bold text-[12pt]">Question 3 : Quel langage est utilisé pour le développement web ?</p>
+                <button class="bg-[#E1D8D0] text-[#373741] border border-[#ccc] px-[20pt] py-[10pt] text-[12pt] cursor-pointer rounded-[5pt] m-[5pt] inline-block quiz-option hover:bg-[#d0c8c0]" data-correct="false">Python</button>
+                <button class="bg-[#E1D8D0] text-[#373741] border border-[#ccc] px-[20pt] py-[10pt] text-[12pt] cursor-pointer rounded-[5pt] m-[5pt] inline-block quiz-option hover:bg-[#d0c8c0]" data-correct="false">C++</button>
+                <button class="bg-[#E1D8D0] text-[#373741] border border-[#ccc] px-[20pt] py-[10pt] text-[12pt] cursor-pointer rounded-[5pt] m-[5pt] inline-block quiz-option hover:bg-[#d0c8c0]" data-correct="true">HTML</button>
+                <p class="text-[11pt] font-bold mt-[4pt] text-red-600 error-message" style="display: none;">Réponse incorrecte. Essayez encore.</p>
+              </div>
+              <div class="mt-[15pt] text-left quiz-question" id="question-4" style="display: none;">
+                <p class="font-bold text-[12pt]">Question 4 : Quelle est la couleur du ciel par temps clair ?</p>
+                <button class="bg-[#E1D8D0] text-[#373741] border border-[#ccc] px-[20pt] py-[10pt] text-[12pt] cursor-pointer rounded-[5pt] m-[5pt] inline-block quiz-option hover:bg-[#d0c8c0]" data-correct="false">Vert</button>
+                <button class="bg-[#E1D8D0] text-[#373741] border border-[#ccc] px-[20pt] py-[10pt] text-[12pt] cursor-pointer rounded-[5pt] m-[5pt] inline-block quiz-option hover:bg-[#d0c8c0]" data-correct="true">Bleu</button>
+                <button class="bg-[#E1D8D0] text-[#373741] border border-[#ccc] px-[20pt] py-[10pt] text-[12pt] cursor-pointer rounded-[5pt] m-[5pt] inline-block quiz-option hover:bg-[#d0c8c0]" data-correct="false">Rouge</button>
+                <p class="text-[11pt] font-bold mt-[4pt] text-red-600 error-message" style="display: none;">Réponse incorrecte. Essayez encore.</p>
+              </div>
+              <div id="quiz-success" style="display: none;">
+                <p>Félicitations ! Vous avez terminé le quiz.</p>
+                <a href="contact.html" class="btn btn-primary">Continuer</a>
+              </div>
+              <button id="brute-force-btn" class="bg-[#bb1d1d] text-white border-none px-[12pt] py-[6pt] text-[10pt] cursor-pointer rounded-[5pt] mt-[5pt] hover:bg-[#800b0b]">Brute Force</button>
             </div>
-
-            <!-- Colonne droite -->
-            <div class="right-column">
-                <div class="title">
-                    <h1>LUCAS GRADINAC</h1>
-                    <div class="whitetitle" style="color:white; font-size: 19pt;">
-                        <p>ÉTUDIANT EN CYBERSÉCURITÉ</p></br>
-                        <p>EN RECHERCHE DE STAGE POUR JUILLET - AOÛT 2025 POUR 4 SEMAINES</p>
-                    </div>
-                </div>
-
-                <div class="section" id="profil">
-                    <div class="textbox">
-                        <p class="cadre">PROFIL</p>
-                    </div>
-                    <div class="dectxt">
-                        <p>En quête d'opportunités, mon désir d'apprendre et de relever de nouveaux objectifs font de moi une personne motivée à découvrir l'univers de l’informatique et plus particulièrement de la cybersécurité.</p>
-                    </div>
-                </div>
-
-                <div class="section" id="experience">
-                    <div class="textbox">
-                        <p class="cadre">EXPÉRIENCE PROFESSIONNELLE</p>
-                    </div>
-                    <div class="dectxt">
-                        <h4><strong>Employé multitâche chez Mickey Boy |</strong> 2023 - 2024</h4>
-                        <p>Saint-Jean de Monts (85160)</p>
-                        <ul>
-                            <li>Mise en route et vérification de la sécurité des attractions</li>
-                            <li>Réparations de systèmes</li>
-                            <li>Pratique de la mécanique et de l’électronique</li>
-                            <li>Gestion des équipes et de la répartition des tâches</li>
-                        </ul>
-
-                        <h4><strong>Stage en entreprise chez Thales |</strong> Juillet 2021</h4>
-                        <p>Vélizy (78140)</p>
-                        <ul>
-                            <li>Expérience en support et services : création d'outils pour les équipes internationales et recueil des besoins clients en réunion</li>
-                            <li>Immersion en développement et cybersécurité : coordination des avancées entre équipes</li>
-                            <li>Découverte de la cybersécurité et de ses enjeux avec un architecte réseaux</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="section" id="formation">
-                    <div class="textbox">
-                        <p class="cadre">FORMATIONS</p>
-                    </div>
-                    <div class="dectxt">
-                        <h4><strong>Bachelor en Cybersécurité |</strong> Sep 2024 - Juin 2027</h4>
-                        <p>EPITA : La Défense - Kremlin-Bicêtre (94043)</p>
-                        <ul>
-                            <li>Formation en association avec Polytechnique l'X et le Ministère des Armées</li>
-                            <li>Apprentissage de langages de programmation : Python, C, Java, Assembleur et C++ (en 2ᵉ année)</li>
-                            <li>Enseignement en réseaux, algorithmie, structures de données, architecture des ordinateurs et système Linux</li>
-                            <li>Cours complémentaires : anglais général et technique, méthodologie de travail, communication écrite et orale</li>
-                        </ul>
-    
-                        <h4><strong>Baccalauréat spécialités Mathématiques/Sciences de l’Ingénierie avec mention |</strong> Juin 2024</h4>
-                        <p>Lycée Saint-François d’Assise à Montigny-Le-Bretonneux (78180)</p>
-                    </div>
-                </div>
-
-                <div class="section" id="competences" style="display: none;">
-                    <div class="textbox">
-                        <p class="cadre">COMPÉTENCES</p>
-                    </div>
-                    <div class="dectxt">
-                        <ul>
-                            <li>Pack Office 365</li>
-                            <li>Langages maîtrisés : C, Python</li>
-                            <li>Connaissances en : HTML, CSS, et JavaScript</li>
-                            <li>Sens du relationnel</li>
-                            <li>Ouverture d'esprit</li>
-                            <li>Sérieux</li>
-                            <li>Rigoureux</li>
-                            <li>Curieux</li>
-                            <li>Autonome</li>
-                            <li>Organisé</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="section" id="interets" style="display: none;">
-                    <div class="textbox">
-                        <p class="cadre">CENTRES D'INTÉRÊT</p>
-                    </div>
-                    <div class="dectxt">
-                        <ul>
-                            <li>Informatique</li>
-                            <li>Musique</li>
-                            <li>Sport</li>
-                            <li>Voyages</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
+          </div>
+          <div class="mb-2">
+            <p class="bg-[#373740] text-[#E1D8D0] font-serif font-bold text-[10pt] px-[9pt] py-[7pt] text-left flex items-center">COORDONNÉES</p>
+          </div>
+          <div class="text-[#373741] pt-[3pt] pb-[10pt] pl-[9pt] leading-tight">
+            <p class="mb-0">1 rue Jean Moulin</p>
+            <p class="mt-0 mb-[2pt]">78000 Versailles</p>
+            <p class="mt-[10pt] mb-[8pt]">📞 06 06 06 06 06</p>
+            <p class="mt-[10pt] mb-[8pt]">Permis B</p>
+            <p class="mt-[10pt] mb-[8pt]">✉ lucas.gradinac@epita.fr</p>
+            <p class="mt-[10pt] mb-[8pt]">🔗 <a href="https://linkedin.com/in/lgradinac" class="text-white">LinkedIn : linkedin.com/in/lgradinac</a></p>
+            <p class="mt-[10pt]">Né le 12/12/2012</p>
+          </div>
         </div>
-        <script src="cv.js"></script>
-    </body>
+        <div class="mb-2" id="langues">
+          <p class="bg-[#373740] text-[#E1D8D0] font-serif font-bold text-[10pt] px-[9pt] py-[7pt] text-left flex items-center">LANGUES</p>
+        </div>
+        <div class="text-[#373741] pt-[4pt] pb-[13pt] pl-[9pt]">
+          <ul class="list-disc pl-[20pt] text-[11pt]">
+            <li>Anglais : C1</li>
+            <li>Espagnol : B1</li>
+          </ul>
+        </div>
+        <div class="mb-2" id="competences">
+          <p class="bg-[#373740] text-[#E1D8D0] font-serif font-bold text-[10pt] px-[9pt] py-[7pt] text-left flex items-center">COMPÉTENCES</p>
+        </div>
+        <div class="text-[#373741] pt-[4pt] pb-[13pt] pl-[9pt]">
+          <ul class="list-disc pl-[20pt] text-[11pt]">
+            <li>Pack Office 365</li>
+            <li>Langages maîtrisés : C, Python</li>
+            <li>Connaissances en : HTML, CSS, et JavaScript</li>
+            <li>Sens du relationnel</li>
+            <li>Ouverture d'esprit</li>
+            <li>Sérieux</li>
+            <li>Rigoureux</li>
+            <li>Curieux</li>
+            <li>Autonome</li>
+            <li>Organisé</li>
+          </ul>
+        </div>
+        <div class="mb-2" id="interets">
+          <p class="bg-[#373740] text-[#E1D8D0] font-serif font-bold text-[10pt] px-[9pt] py-[7pt] text-left flex items-center">CENTRES D'INTÉRÊT</p>
+        </div>
+        <div class="text-[#373741] pt-[4pt] pl-[9pt]" id="interets-list">
+          <ul class="list-disc pl-[20pt] text-[11pt]">
+            <li>Informatique</li>
+            <li>Musique</li>
+            <li>Sport</li>
+            <li>Voyages</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Colonne droite -->
+      <div class="w-full md:w-[65%] p-[30pt]">
+        <div class="bg-[#3b3b45] text-center mb-[20pt] font-serif">
+          <h1 class="text-[#E1D8D0] text-[38pt] font-bold mb-0 font-['Aleo',serif]">LUCAS GRADINAC</h1>
+          <div class="text-white text-[19pt]">
+            <p class="text-[13pt] leading-[1.5] font-bold mb-[12pt]">ÉTUDIANT EN CYBERSÉCURITÉ</p>
+            <p class="text-[13pt] leading-[1.5] font-bold">EN RECHERCHE DE STAGE POUR JUILLET - AOÛT 2025 POUR 4 SEMAINES</p>
+          </div>
+        </div>
+        <div class="section" id="profil">
+          <div class="mb-2">
+            <p class="bg-[#373740] text-[#E1D8D0] font-serif font-bold text-[10pt] px-[9pt] py-[7pt] text-left flex items-center">PROFIL</p>
+          </div>
+          <div class="text-[#373741] ml-[10pt] mb-[10pt] mt-[10pt]">
+            <p>En quête d'opportunités, mon désir d'apprendre et de relever de nouveaux objectifs font de moi une personne motivée à découvrir l'univers de l’informatique et plus particulièrement de la cybersécurité.</p>
+          </div>
+        </div>
+        <div class="section" id="experience">
+          <div class="mb-2">
+            <p class="bg-[#373740] text-[#E1D8D0] font-serif font-bold text-[10pt] px-[9pt] py-[7pt] text-left flex items-center">EXPÉRIENCE PROFESSIONNELLE</p>
+          </div>
+          <div class="text-[#373741] ml-[10pt] mb-[10pt] mt-[10pt]">
+            <h4 class="text-[16pt] text-[#373741] mt-[10pt] font-normal"><strong>Employé multitâche chez Mickey Boy |</strong> 2023 - 2024</h4>
+            <p>Saint-Jean de Monts (85160)</p>
+            <ul class="list-disc pl-[20pt] text-[14pt] leading-[1.5]">
+              <li>Mise en route et vérification de la sécurité des attractions</li>
+              <li>Réparations de systèmes</li>
+              <li>Pratique de la mécanique et de l’électronique</li>
+              <li>Gestion des équipes et de la répartition des tâches</li>
+            </ul>
+            <h4 class="text-[16pt] text-[#373741] mt-[10pt] font-normal"><strong>Stage en entreprise chez Thales |</strong> Juillet 2021</h4>
+            <p>Vélizy (78140)</p>
+            <ul class="list-disc pl-[20pt] text-[14pt] leading-[1.5]">
+              <li>Expérience en support et services : création d'outils pour les équipes internationales et recueil des besoins clients en réunion</li>
+              <li>Immersion en développement et cybersécurité : coordination des avancées entre équipes</li>
+              <li>Découverte de la cybersécurité et de ses enjeux avec un architecte réseaux</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section" id="formation">
+          <div class="mb-2">
+            <p class="bg-[#373740] text-[#E1D8D0] font-serif font-bold text-[10pt] px-[9pt] py-[7pt] text-left flex items-center">FORMATIONS</p>
+          </div>
+          <div class="text-[#373741] ml-[10pt] mb-[10pt] mt-[10pt]">
+            <h4 class="text-[16pt] text-[#373741] mt-[10pt] font-normal"><strong>Bachelor en Cybersécurité |</strong> Sep 2024 - Juin 2027</h4>
+            <p>EPITA : La Défense - Kremlin-Bicêtre (94043)</p>
+            <ul class="list-disc pl-[20pt] text-[14pt] leading-[1.5]">
+              <li>Formation en association avec Polytechnique l'X et le Ministère des Armées</li>
+              <li>Apprentissage de langages de programmation : Python, C, Java, Assembleur et C++ (en 2ᵉ année)</li>
+              <li>Enseignement en réseaux, algorithmie, structures de données, architecture des ordinateurs et système Linux</li>
+              <li>Cours complémentaires : anglais général et technique, méthodologie de travail, communication écrite et orale</li>
+            </ul>
+            <h4 class="text-[16pt] text-[#373741] mt-[10pt] font-normal"><strong>Baccalauréat spécialités Mathématiques/Sciences de l’Ingénierie avec mention |</strong> Juin 2024</h4>
+            <p>Lycée Saint-François d’Assise à Montigny-Le-Bretonneux (78180)</p>
+          </div>
+        </div>
+        <div class="section" id="competences" style="display: none;">
+          <div class="mb-2">
+            <p class="bg-[#373740] text-[#E1D8D0] font-serif font-bold text-[10pt] px-[9pt] py-[7pt] text-left flex items-center">COMPÉTENCES</p>
+          </div>
+          <div class="text-[#373741] ml-[10pt] mb-[10pt] mt-[10pt]">
+            <ul class="list-disc pl-[20pt] text-[14pt] leading-[1.5]">
+              <li>Pack Office 365</li>
+              <li>Langages maîtrisés : C, Python</li>
+              <li>Connaissances en : HTML, CSS, et JavaScript</li>
+              <li>Sens du relationnel</li>
+              <li>Ouverture d'esprit</li>
+              <li>Sérieux</li>
+              <li>Rigoureux</li>
+              <li>Curieux</li>
+              <li>Autonome</li>
+              <li>Organisé</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section" id="interets" style="display: none;">
+          <div class="mb-2">
+            <p class="bg-[#373740] text-[#E1D8D0] font-serif font-bold text-[10pt] px-[9pt] py-[7pt] text-left flex items-center">CENTRES D'INTÉRÊT</p>
+          </div>
+          <div class="text-[#373741] ml-[10pt] mb-[10pt] mt-[10pt]">
+            <ul class="list-disc pl-[20pt] text-[14pt] leading-[1.5]">
+              <li>Informatique</li>
+              <li>Musique</li>
+              <li>Sport</li>
+              <li>Voyages</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="cv.js"></script>
+  </body>
 </html>

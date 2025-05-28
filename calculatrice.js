@@ -2,78 +2,74 @@ const display = document.getElementById('calculator-display');
 const historyList = document.getElementById('history-list');
 const currentCalculation = document.getElementById('current-calculation');
 let fullExpression = '';
+let lastResult = '';
 
 document.querySelectorAll('.btn').forEach(button => {
     button.addEventListener('click', () => {
         const value = button.getAttribute('data-value');
 
-        if (value === 'C') {
-            fullExpression = '';
-            display.value = '';
-            currentCalculation.textContent = '';
-        } else if (value === '←') {
-            // Supprimer le dernier caractère
-            if (fullExpression.endsWith('²')) {
-                fullExpression = fullExpression.slice(0, -1); // Supprimer le carré
+        if (!isNaN(value) || value === '.') {
+            // Chiffres ou virgule
+            if (display.value === '0' || display.value === lastResult) {
+                display.value = value === '.' ? '0.' : value;
             } else {
-                fullExpression = fullExpression.slice(0, -1);
+                if (value === '.' && display.value.includes('.')) return;
+                display.value += value;
             }
-            display.value = fullExpression || '0';
+        } else if (isOperator(value)) {
+            // Opérateurs
+            if (display.value === '' && value !== '-') return;
+            fullExpression += display.value + ' ' + value + ' ';
             currentCalculation.textContent = fullExpression;
+            display.value = '';
         } else if (value === '=') {
+            // Calcul
+            if (display.value === '') return;
+            fullExpression += display.value;
             try {
-                const result = evaluateExpression(fullExpression);
-                addToHistory(`${fullExpression} = ${result}`);
+                let result = evaluateExpression(fullExpression);
+                historyList.innerHTML = `<li>${fullExpression} = <strong>${result}</strong></li>` + historyList.innerHTML;
                 display.value = result;
-                currentCalculation.textContent = `${fullExpression} =`;
-                fullExpression = '';
-            } catch (error) {
+                lastResult = result;
+            } catch {
                 display.value = 'Erreur';
             }
+            fullExpression = '';
+            currentCalculation.textContent = '';
+        } else if (value === 'C') {
+            // Clear
+            display.value = '';
+            fullExpression = '';
+            currentCalculation.textContent = '';
+        } else if (value === '←') {
+            // Backspace
+            display.value = display.value.slice(0, -1);
         } else if (value === '²') {
-            // Ajouter le carré dans l'affichage
-            const match = fullExpression.match(/(\d+(\.\d+)?|\.\d+)$/); // Trouver le dernier nombre
-            if (match) {
-                const number = match[0];
-                fullExpression = fullExpression.replace(/(\d+(\.\d+)?|\.\d+)$/, `${number}²`);
-                display.value = fullExpression;
-                currentCalculation.textContent = fullExpression;
+            // Ajoute l'exposant ² à la valeur courante sans calculer
+            if (display.value !== '') {
+                display.value = display.value + '²';
             }
-        } else {
-            if (isOperator(value)) {
-                if (isOperator(fullExpression.slice(-1))) {
-                    fullExpression = fullExpression.slice(0, -1);
-                }
+        } else if (value === '%') {
+            // Pourcentage
+            if (display.value !== '') {
+                display.value = Number(display.value) / 100;
             }
-            if (value === '%') {
-                // Si le dernier caractère est un opérateur, traiter % comme modulo
-                if (isOperator(fullExpression.slice(-1))) {
-                    fullExpression += value;
-                } else {
-                    // Sinon, traiter % comme un pourcentage
-                    fullExpression += '/100';
-                }
-            } else {
-                fullExpression += value === ',' ? '.' : value;
-            }
-            display.value = fullExpression;
-            currentCalculation.textContent = fullExpression;
         }
     });
 });
 
 function isOperator(char) {
-    return ['+', '-', '*', '/', '%'].includes(char);
+    return ['+', '-', '*', '/', '×', '÷'].includes(char);
 }
 
 function evaluateExpression(expression) {
-    // Remplacer les carrés (ex: 5²) par Math.pow(5, 2)
-    const parsedExpression = expression.replace(/(\d+)²/g, 'Math.pow($1, 2)');
-    return new Function(`return ${parsedExpression}`)();
-}
-
-function addToHistory(expression) {
-    const li = document.createElement('li');
-    li.textContent = expression;
-    historyList.appendChild(li);
+    // Remplace les opérateurs visuels par JS
+    expression = expression.replace(/×/g, '*').replace(/÷/g, '/').replace(/,/g, '.');
+    // Remplace tous les n² par (n*n)
+    expression = expression.replace(/(\d+)²/g, '($1*$1)');
+    // Sécurité basique
+    if (!/^[\d+\-*/. ()]+$/.test(expression)) throw new Error('Invalid');
+    // Évalue
+    // eslint-disable-next-line no-eval
+    return Number(eval(expression)).toString();
 }
